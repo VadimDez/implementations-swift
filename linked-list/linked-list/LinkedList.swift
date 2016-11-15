@@ -15,6 +15,7 @@ struct Node {
 
 enum LinkedListError: Error {
     case IndexOutOfBounds
+    case Empty
 }
 
 class LinkedList {
@@ -41,7 +42,9 @@ class LinkedList {
         
         if (!self.empty()) {
             node.next = UnsafeMutablePointer<Node>.allocate(capacity: 1)
-            node.next = self.head
+            node.next?[0] = (self.head?.pointee)!
+        } else {
+            self.tail?[0] = node
         }
         
         self.head?[0] = node
@@ -51,17 +54,45 @@ class LinkedList {
     
     // get value at index
     func valueAt(index: Int) throws -> Int {
-        var node: UnsafeMutablePointer<Node>? = UnsafeMutablePointer<Node>.allocate(capacity: 1)
-        node = self.head
-        
         if index < 0 || index > self.size() - 1 {
             throw LinkedListError.IndexOutOfBounds
         }
         
+        if self.empty() {
+            throw LinkedListError.Empty
+        }
+        
+        var node = self.head
+        
         for _ in 0..<index {
-            
+            node = node?.pointee.next
         }
         
         return (node?.pointee.value)!
+    }
+    
+    func popFront() throws -> Int {
+        if self.empty() {
+            throw LinkedListError.Empty
+        }
+        
+        let value = self.tail?.pointee.value
+        
+        
+        
+        self.count -= 1
+        
+        return value!
+    }
+    
+    func pushBack(value: Int) {
+        let node = Node(value: value, next: nil)
+        
+        self.tail?.pointee.next = UnsafeMutablePointer<Node>.allocate(capacity: 1)
+        self.tail?.pointee.next?[0] = node
+        
+        self.tail?[0] = node
+        
+        self.count += 1
     }
 }

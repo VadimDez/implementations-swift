@@ -8,9 +8,14 @@
 
 import Foundation
 
-struct Node {
+class Node {
     var value: Int
-    var next: UnsafeMutablePointer<Node>?
+    var next: Node?
+    
+    init(value: Int, next: Node?) {
+        self.value = value
+        self.next = next
+    }
 }
 
 enum LinkedListError: Error {
@@ -19,8 +24,8 @@ enum LinkedListError: Error {
 }
 
 class LinkedList {
-    private var head: UnsafeMutablePointer<Node>? = UnsafeMutablePointer<Node>.allocate(capacity: 1)
-    private var tail: UnsafeMutablePointer<Node>? = UnsafeMutablePointer<Node>.allocate(capacity: 1)
+    private var head: Node?
+    private var tail: Node?
     private var count: Int = 0
     
     init() {
@@ -38,16 +43,15 @@ class LinkedList {
     
     // put value to the head
     func pushFront(value: Int) {
-        var node = Node(value: value, next: nil)
+        let node = Node(value: value, next: nil)
         
         if (!self.empty()) {
-            node.next = UnsafeMutablePointer<Node>.allocate(capacity: 1)
-            node.next?[0] = (self.head?.pointee)!
+            node.next = self.head
         } else {
-            self.tail?[0] = node
+            self.tail = node
         }
         
-        self.head?[0] = node
+        self.head = node
         
         self.count += 1
     }
@@ -65,10 +69,10 @@ class LinkedList {
         var node = self.head
         
         for _ in 0..<index {
-            node = node?.pointee.next
+            node = node?.next
         }
         
-        return (node?.pointee.value)!
+        return node!.value
     }
     
     func popFront() throws -> Int {
@@ -76,9 +80,9 @@ class LinkedList {
             throw LinkedListError.Empty
         }
         
-        let value = self.tail?.pointee.value
+        let value = self.head?.value
         
-        
+        self.head = self.head?.next
         
         self.count -= 1
         
@@ -86,13 +90,103 @@ class LinkedList {
     }
     
     func pushBack(value: Int) {
-        let node = Node(value: value, next: nil)
-        
-        self.tail?.pointee.next = UnsafeMutablePointer<Node>.allocate(capacity: 1)
-        self.tail?.pointee.next?[0] = node
-        
-        self.tail?[0] = node
+        self.tail?.next = Node(value: value, next: nil)
+        self.tail = self.tail?.next
         
         self.count += 1
+    }
+    
+    func popBack() throws -> Int {
+        if self.empty() {
+            throw LinkedListError.Empty
+        }
+        
+        let value = self.tail?.value
+        var node = self.head
+        
+        self.count -= 1
+        
+        for _ in 0..<self.count - 1 {
+            node = node?.next
+        }
+        
+        self.tail = node
+        
+        return value!
+    }
+    
+    func front() throws -> Int {
+        if self.empty() {
+            throw LinkedListError.Empty
+        }
+        
+        return (self.head?.value)!
+    }
+    
+    func back() throws -> Int {
+        if self.empty() {
+            throw LinkedListError.Empty
+        }
+        
+        return (self.tail?.value)!
+    }
+    
+    func insert(index: Int, value: Int) {
+        var node = self.head
+        
+        if index == 0 {
+            self.head = Node(value: value, next: self.head?.next)
+        } else {
+        
+            for _ in 0..<index-1 {
+                node = node?.next
+            }
+        
+            node?.next = Node(value: value, next: node?.next)
+        }
+        
+        if self.tail?.next != nil {
+            self.tail = self.tail?.next
+        }
+        
+        self.count += 1
+    }
+    
+    func erase(index: Int) throws {
+        if index < 0 || index > self.size() - 1 {
+            throw LinkedListError.IndexOutOfBounds
+        }
+        
+        var node = self.head
+        
+        if index == 0 {
+            self.head = self.head?.next
+        } else {
+            for _ in 0..<index-1 {
+                node = node?.next
+            }
+            node?.next = node?.next?.next
+        }
+        
+        
+        if index + 1 == self.count {
+            self.tail = node
+        }
+        
+        self.count -= 1
+    }
+    
+    func value_n_from_end(n: Int) throws -> Int {
+        if n < 0 || n > self.size() {
+            throw LinkedListError.IndexOutOfBounds
+            
+        }
+        var node = self.head
+        
+        for _ in 0..<self.size() - n {
+            node = node?.next
+        }
+        
+        return (node?.value)!
     }
 }

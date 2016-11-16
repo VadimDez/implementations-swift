@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120CDD611DDD00660032D76A /* LinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120CDD601DDD00660032D76A /* LinkedListTests.swift */; };
 		1291961A1DDA3B980001E4F7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129196191DDA3B980001E4F7 /* main.swift */; };
 		129196211DDA3BBF0001E4F7 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129196201DDA3BBF0001E4F7 /* LinkedList.swift */; };
 /* End PBXBuildFile section */
@@ -24,12 +25,32 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		120CDD471DDCFC8C0032D76A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		120CDD4B1DDCFDC80032D76A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		120CDD521DDCFF030032D76A /* LinkedList.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkedList.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		120CDD5E1DDD00660032D76A /* LinkedListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkedListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		120CDD601DDD00660032D76A /* LinkedListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedListTests.swift; sourceTree = "<group>"; };
+		120CDD621DDD00660032D76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		129196161DDA3B980001E4F7 /* linked-list */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "linked-list"; sourceTree = BUILT_PRODUCTS_DIR; };
 		129196191DDA3B980001E4F7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		129196201DDA3BBF0001E4F7 /* LinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		120CDD4F1DDCFF030032D76A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		120CDD5B1DDD00660032D76A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		129196131DDA3B980001E4F7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -40,11 +61,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		120CDD461DDCFC8C0032D76A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				120CDD4B1DDCFDC80032D76A /* Cocoa.framework */,
+				120CDD471DDCFC8C0032D76A /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		120CDD5F1DDD00660032D76A /* LinkedListTests */ = {
+			isa = PBXGroup;
+			children = (
+				120CDD601DDD00660032D76A /* LinkedListTests.swift */,
+				120CDD621DDD00660032D76A /* Info.plist */,
+			);
+			path = LinkedListTests;
+			sourceTree = "<group>";
+		};
 		1291960D1DDA3B980001E4F7 = {
 			isa = PBXGroup;
 			children = (
 				129196181DDA3B980001E4F7 /* linked-list */,
+				120CDD5F1DDD00660032D76A /* LinkedListTests */,
 				129196171DDA3B980001E4F7 /* Products */,
+				120CDD461DDCFC8C0032D76A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				129196161DDA3B980001E4F7 /* linked-list */,
+				120CDD521DDCFF030032D76A /* LinkedList.xctest */,
+				120CDD5E1DDD00660032D76A /* LinkedListTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,6 +111,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		120CDD511DDCFF030032D76A /* LinkedList */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 120CDD571DDCFF030032D76A /* Build configuration list for PBXNativeTarget "LinkedList" */;
+			buildPhases = (
+				120CDD4E1DDCFF030032D76A /* Sources */,
+				120CDD4F1DDCFF030032D76A /* Frameworks */,
+				120CDD501DDCFF030032D76A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LinkedList;
+			productName = LinkedList;
+			productReference = 120CDD521DDCFF030032D76A /* LinkedList.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		120CDD5D1DDD00660032D76A /* LinkedListTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 120CDD651DDD00660032D76A /* Build configuration list for PBXNativeTarget "LinkedListTests" */;
+			buildPhases = (
+				120CDD5A1DDD00660032D76A /* Sources */,
+				120CDD5B1DDD00660032D76A /* Frameworks */,
+				120CDD5C1DDD00660032D76A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LinkedListTests;
+			productName = LinkedListTests;
+			productReference = 120CDD5E1DDD00660032D76A /* LinkedListTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		129196151DDA3B980001E4F7 /* linked-list */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1291961D1DDA3B980001E4F7 /* Build configuration list for PBXNativeTarget "linked-list" */;
@@ -95,6 +172,16 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Vadim Dez";
 				TargetAttributes = {
+					120CDD511DDCFF030032D76A = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = X2Y38H8PPB;
+						ProvisioningStyle = Automatic;
+					};
+					120CDD5D1DDD00660032D76A = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = X2Y38H8PPB;
+						ProvisioningStyle = Automatic;
+					};
 					129196151DDA3B980001E4F7 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = X2Y38H8PPB;
@@ -115,11 +202,45 @@
 			projectRoot = "";
 			targets = (
 				129196151DDA3B980001E4F7 /* linked-list */,
+				120CDD511DDCFF030032D76A /* LinkedList */,
+				120CDD5D1DDD00660032D76A /* LinkedListTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		120CDD501DDCFF030032D76A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		120CDD5C1DDD00660032D76A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		120CDD4E1DDCFF030032D76A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		120CDD5A1DDD00660032D76A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				120CDD611DDD00660032D76A /* LinkedListTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		129196121DDA3B980001E4F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -132,6 +253,62 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		120CDD581DDCFF030032D76A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X2Y38H8PPB;
+				INFOPLIST_FILE = LinkedList/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vadimdez.LinkedList;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		120CDD591DDCFF030032D76A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X2Y38H8PPB;
+				INFOPLIST_FILE = LinkedList/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vadimdez.LinkedList;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		120CDD631DDD00660032D76A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X2Y38H8PPB;
+				INFOPLIST_FILE = LinkedListTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vadimdez.LinkedListTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		120CDD641DDD00660032D76A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X2Y38H8PPB;
+				INFOPLIST_FILE = LinkedListTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vadimdez.LinkedListTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		1291961B1DDA3B980001E4F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -241,6 +418,23 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		120CDD571DDCFF030032D76A /* Build configuration list for PBXNativeTarget "LinkedList" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				120CDD581DDCFF030032D76A /* Debug */,
+				120CDD591DDCFF030032D76A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		120CDD651DDD00660032D76A /* Build configuration list for PBXNativeTarget "LinkedListTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				120CDD631DDD00660032D76A /* Debug */,
+				120CDD641DDD00660032D76A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		129196111DDA3B980001E4F7 /* Build configuration list for PBXProject "linked-list" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -257,6 +451,7 @@
 				1291961F1DDA3B980001E4F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

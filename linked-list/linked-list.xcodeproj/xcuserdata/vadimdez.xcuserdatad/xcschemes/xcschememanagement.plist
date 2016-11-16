@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>LinkedListTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>linked-list.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>120CDD511DDCFF030032D76A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>120CDD5D1DDD00660032D76A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>129196151DDA3B980001E4F7</key>
 		<dict>
 			<key>primary</key>

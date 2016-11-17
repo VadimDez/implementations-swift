@@ -61,3 +61,18 @@ print("Value at back(): \( try? l.back() ) )\n")
 
 print("Value n fron end")
 print("Value n=1 from end: \( try? l.value_n_from_end(n: 1) ) )\n")
+
+
+print("QUEUE")
+print("QUEUE")
+print("QUEUE")
+
+var q = Queue()
+print("QUEUE")
+
+print("Is queue empty: \( q.empty() )")
+
+q.enqueue(value: 1)
+print("Is queue empty: \( q.empty() )")
+print("Dequeue: \( q.dequeue() )")
+print("Is queue empty: \( q.empty() )")

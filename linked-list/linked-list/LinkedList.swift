@@ -90,8 +90,13 @@ class LinkedList {
     }
     
     func pushBack(value: Int) {
-        self.tail?.next = Node(value: value, next: nil)
-        self.tail = self.tail?.next
+        if (self.tail != nil) {
+            self.tail?.next = Node(value: value, next: nil)
+            self.tail = self.tail?.next
+        } else {
+            self.tail = Node(value: value, next: nil)
+            self.head = self.tail
+        }
         
         self.count += 1
     }

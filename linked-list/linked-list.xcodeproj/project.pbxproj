@@ -10,6 +10,7 @@
 		120CDD611DDD00660032D76A /* LinkedListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120CDD601DDD00660032D76A /* LinkedListTests.swift */; };
 		1291961A1DDA3B980001E4F7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129196191DDA3B980001E4F7 /* main.swift */; };
 		129196211DDA3BBF0001E4F7 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129196201DDA3BBF0001E4F7 /* LinkedList.swift */; };
+		129205C31DDDC74C007793A2 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129205C21DDDC74C007793A2 /* Queue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,7 @@
 		129196161DDA3B980001E4F7 /* linked-list */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "linked-list"; sourceTree = BUILT_PRODUCTS_DIR; };
 		129196191DDA3B980001E4F7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		129196201DDA3BBF0001E4F7 /* LinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
+		129205C21DDDC74C007793A2 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				129196191DDA3B980001E4F7 /* main.swift */,
 				129196201DDA3BBF0001E4F7 /* LinkedList.swift */,
+				129205C21DDDC74C007793A2 /* Queue.swift */,
 			);
 			path = "linked-list";
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				129196211DDA3BBF0001E4F7 /* LinkedList.swift in Sources */,
+				129205C31DDDC74C007793A2 /* Queue.swift in Sources */,
 				1291961A1DDA3B980001E4F7 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +438,7 @@
 				120CDD641DDD00660032D76A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		129196111DDA3B980001E4F7 /* Build configuration list for PBXProject "linked-list" */ = {
 			isa = XCConfigurationList;

@@ -12,3 +12,6 @@ print("Binary search tree")
 
 let tree = BST()
 
+tree.insert(value: 1)
+
+

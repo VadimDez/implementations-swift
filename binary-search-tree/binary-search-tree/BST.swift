@@ -9,7 +9,15 @@
 import Foundation
 
 class BST {
+    var root: Node?
+    
     func insert(value: Int) -> Void {
-        let node = Node(value)
+        var i = self.root
+        
+        while i != nil {
+            i = i?.right
+        }
+        
+        i = Node(value: value)
     }
 }

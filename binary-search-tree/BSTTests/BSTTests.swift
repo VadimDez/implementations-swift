@@ -191,4 +191,43 @@ class BSTTests: XCTestCase {
         self.tree?.insert(value: 18)
         XCTAssertEqual(try! self.tree?.getMax(), 20)
     }
+    
+    func testGetHeightOfEmptyTree() -> Void {
+        XCTAssertEqual(self.tree?.getHeight(), 0)
+    }
+    
+    func testGetHeight() -> Void {
+        self.tree?.insert(value: 1)
+        XCTAssertEqual(self.tree?.getHeight(), 1)
+        
+        self.tree?.insert(value: 2)
+        self.tree?.insert(value: -10)
+        self.tree?.insert(value: 100)
+        self.tree?.insert(value: 35)
+        self.tree?.insert(value: 6)
+        self.tree?.insert(value: -1)
+        
+        XCTAssertEqual(self.tree?.getHeight(), 5)
+    }
+    
+    func testIsBinarySearchTreeEmptyTree() {
+        XCTAssertTrue(self.tree!.isBinarySearchTree())
+    }
+    
+    func testIsBinarySearchTree() {
+        self.tree?.insert(value: 100)
+        self.tree?.insert(value: 101)
+        XCTAssertTrue(self.tree!.isBinarySearchTree())
+    }
+    
+    func testGetSuccessorOfEmptyTree() -> Void {
+        XCTAssertEqual(self.tree?.getSuccessor(value: 100), -1)
+    }
+    
+    func testGetSuccessor() -> Void {
+        self.tree?.insert(value: 101)
+        self.tree?.insert(value: 100)
+        XCTAssertEqual(self.tree?.getSuccessor(value: 100), 101)
+        self.tree?.insert(value: 102)
+    }
 }

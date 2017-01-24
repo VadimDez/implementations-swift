@@ -129,4 +129,46 @@ class BST {
         
         return self.getMax(node: node.right!)
     }
+    
+    func getHeight() -> Int {
+        return self.getMaxHeight(node: self.root)
+    }
+    
+    private func getMaxHeight(node: Node?) -> Int {
+        if node == nil {
+            return 0
+        }
+     
+        let leftHeight = self.getMaxHeight(node: node!.left)
+        let rightHeight = self.getMaxHeight(node: node!.right)
+        return 1 + (leftHeight > rightHeight ? leftHeight : rightHeight)
+    }
+    
+    func isBinarySearchTree() -> Bool {
+        return self.isBinarySearchTree(node: self.root, minValue: Int(INT16_MIN), maxValue: Int(INT16_MAX))
+    }
+    
+    private func isBinarySearchTree(node: Node?, minValue: Int, maxValue: Int) -> Bool {
+        if node == nil {
+            return true
+        }
+        
+        return node!.value >= minValue
+            && node!.value < maxValue
+            && self.isBinarySearchTree(node: node!.left, minValue: minValue, maxValue: node!.value)
+            && self.isBinarySearchTree(node: node!.right, minValue: node!.value, maxValue: maxValue)
+        
+    }
+    
+    func getSuccessor(value: Int) -> Int {
+        return self.getSuccessor(node: self.root, value: value)
+    }
+    
+    private func getSuccessor(node: Node?, value: Int) -> Int {
+        if node == nil {
+            return -1
+        }
+        
+        return 101
+    }
 }

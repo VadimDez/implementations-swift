@@ -347,6 +347,7 @@
 				125A5F1A1E34C7B400FC520C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1264AA1F1E1D178A00E47004 /* Build configuration list for PBXProject "BinarySearchTree" */ = {
 			isa = XCConfigurationList;

@@ -169,6 +169,23 @@ class BST {
             return -1
         }
         
-        return 101
+        if node!.value == value {
+            return node!.right?.value ?? -1
+        }
+        
+        if node!.value > value {
+            if node!.left?.value == value {
+                return node!.value
+            }
+            
+            return self.getSuccessor(node: node!.left, value: value)
+        }
+        
+        if node!.right?.value == value {
+            return node!.value
+        }
+        
+        return self.getSuccessor(node: node!.right, value: value)
+        
     }
 }

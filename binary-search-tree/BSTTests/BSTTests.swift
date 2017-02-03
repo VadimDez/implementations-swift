@@ -229,5 +229,12 @@ class BSTTests: XCTestCase {
         self.tree?.insert(value: 100)
         XCTAssertEqual(self.tree?.getSuccessor(value: 100), 101)
         self.tree?.insert(value: 102)
+        
+        XCTAssertEqual(self.tree?.getSuccessor(value: 101), 102)
+        
+        self.tree?.insert(value: 110)
+        self.tree?.insert(value: 104)
+        self.tree?.insert(value: 105)
+        XCTAssertEqual(self.tree?.getSuccessor(value: 105), 110)
     }
 }

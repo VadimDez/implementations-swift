@@ -160,32 +160,45 @@ class BST {
         
     }
     
-    func getSuccessor(value: Int) -> Int {
-        return self.getSuccessor(node: self.root, value: value)
+    private func find(value: Int, root: Node?) -> Node? {
+        if root == nil {
+            return nil;
+        }
+        
+        if value < root!.value {
+            return self.find(value: value, root: root!.left);
+        }
+        
+        if value > root!.value {
+            return self.find(value: value, root: root!.right);
+        }
+        
+        return root;
     }
     
-    private func getSuccessor(node: Node?, value: Int) -> Int {
+    func getSuccessor(value: Int) -> Int {
+        let node = self.find(value: value, root: self.root)
+        
         if node == nil {
             return -1
         }
         
-        if node!.value == value {
-            return node!.right?.value ?? -1
+        if node?.right != nil {
+            return self.getMin(node: node!.right!)
         }
         
-        if node!.value > value {
-            if node!.left?.value == value {
-                return node!.value
+        var successor: Node? = nil;
+        var ancestor: Node? = self.root;
+        
+        while node?.value != ancestor?.value {
+            if node!.value < ancestor!.value {
+                successor = ancestor;
+                ancestor = ancestor?.left;
+            } else {
+                ancestor = ancestor?.right;
             }
-            
-            return self.getSuccessor(node: node!.left, value: value)
         }
         
-        if node!.right?.value == value {
-            return node!.value
-        }
-        
-        return self.getSuccessor(node: node!.right, value: value)
-        
+        return successor!.value;
     }
 }

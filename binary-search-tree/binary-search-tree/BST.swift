@@ -201,4 +201,8 @@ class BST {
         
         return successor!.value;
     }
+    
+    func deleteValue(value: Int) -> Void {
+        
+    }
 }

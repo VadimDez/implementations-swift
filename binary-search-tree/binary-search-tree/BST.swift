@@ -203,6 +203,14 @@ class BST {
     }
     
     func deleteValue(value: Int) -> Void {
+        let node = self.find(value: value, root: self.root)
         
+        if node == nil {
+            return;
+        }
+        
+        if node?.left == nil || node?.right == nil {
+            
+        }
     }
 }

@@ -203,14 +203,53 @@ class BST {
     }
     
     func deleteValue(value: Int) -> Void {
-        let node = self.find(value: value, root: self.root)
+//        let node = self.find(value: value, root: self.root)
         
-        if node == nil {
+//        if node == nil {
+//            return;
+//        }
+        
+//        if node?.left == nil || node?.right == nil {
+        
+//        }
+        
+        var parent: Node?;
+        var node: Node? = self.root;
+        var found: Bool = false;
+        var end: Bool = self.root != nil;
+        var nodeToDelete: Node?;
+        var isLeft: Bool;
+        
+        while !found && !end {
+            parent = node;
+            
+            if parent!.value >= value {
+                found = parent?.left?.value == value;
+                nodeToDelete = parent?.left;
+                isLeft = true;
+            } else {
+                found = parent?.right?.value == value;
+                nodeToDelete = parent?.right
+                isLeft = false;
+            }
+            
+            if node != nil {
+                node = node!.value >= value ? node?.left : node?.right;
+            } else {
+                end = true;
+            }
+        }
+        
+        if end || !found {
             return;
         }
         
-        if node?.left == nil || node?.right == nil {
-            
+        if nodeToDelete?.left == nil && nodeToDelete?.right == nil {
+            if isLeft {
+                parent?.left = nil
+            } else {
+                parent?.right = nil
+            }
         }
     }
 }

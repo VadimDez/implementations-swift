@@ -216,27 +216,27 @@ class BST {
         var parent: Node?;
         var node: Node? = self.root;
         var found: Bool = false;
-        var end: Bool = self.root != nil;
+        var end: Bool = self.root == nil;
         var nodeToDelete: Node?;
-        var isLeft: Bool;
+        var isLeft: Bool = false;
         
         while !found && !end {
             parent = node;
             
-            if parent!.value >= value {
-                found = parent?.left?.value == value;
-                nodeToDelete = parent?.left;
-                isLeft = true;
-            } else {
-                found = parent?.right?.value == value;
-                nodeToDelete = parent?.right
-                isLeft = false;
-            }
-            
-            if node != nil {
-                node = node!.value >= value ? node?.left : node?.right;
-            } else {
+            if (parent == nil) {
                 end = true;
+            } else {
+                if (parent?.value)! >= value {
+                    found = parent?.left?.value == value;
+                    nodeToDelete = parent?.left;
+                    isLeft = true;
+                } else {
+                    found = parent?.right?.value == value;
+                    nodeToDelete = parent?.right
+                    isLeft = false;
+                }
+                
+                node = node!.value >= value ? node?.left : node?.right;
             }
         }
         

@@ -244,4 +244,30 @@ class BSTTests: XCTestCase {
         self.tree?.deleteValue(value: 101)
         XCTAssertEqual(self.tree?.isInTree(value: 101), false)
     }
+    
+    
+    func testLeftDeleteValue() -> Void {
+        self.tree?.insert(value: 100)
+        self.tree?.insert(value: 101)
+        self.tree?.insert(value: 99)
+        self.tree?.deleteValue(value: 99)
+        XCTAssertEqual(self.tree?.isInTree(value: 99), false)
+    }
+    
+    func testNestedDeleteValue() -> Void {
+        self.tree?.insert(value: 100)
+        self.tree?.insert(value: 101)
+        self.tree?.insert(value: 98)
+        self.tree?.insert(value: 99)
+        self.tree?.deleteValue(value: 99)
+        XCTAssertEqual(self.tree?.isInTree(value: 99), false)
+    }
+    
+    
+    func testDeleteParent() -> Void {
+        self.tree?.insert(value: 100)
+        self.tree?.insert(value: 101)
+        self.tree?.deleteValue(value: 100)
+        XCTAssertEqual(self.tree?.isInTree(value: 100), false)
+    }
 }

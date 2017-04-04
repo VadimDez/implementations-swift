@@ -238,6 +238,12 @@ class BSTTests: XCTestCase {
         XCTAssertEqual(self.tree?.getSuccessor(value: 105), 110)
     }
     
+    func testDeleteSingleNode() -> Void {
+        self.tree?.insert(value: 100)
+        self.tree?.deleteValue(value: 100)
+        XCTAssertNil(self.tree?.root)
+    }
+    
     func testDeleteValue() -> Void {
         self.tree?.insert(value: 100)
         self.tree?.insert(value: 101)
@@ -269,5 +275,15 @@ class BSTTests: XCTestCase {
         self.tree?.insert(value: 101)
         self.tree?.deleteValue(value: 100)
         XCTAssertEqual(self.tree?.isInTree(value: 100), false)
+    }
+    
+    func testDeleteNodeWithTwoChilds() -> Void {
+        self.tree?.insert(value: 100)
+        self.tree?.insert(value: 99)
+        self.tree?.insert(value: 101)
+        self.tree?.deleteValue(value: 100)
+        XCTAssertEqual(self.tree?.isInTree(value: 100), false)
+        XCTAssertEqual(101, self.tree?.root?.value)
+        XCTAssertEqual(99, self.tree?.root?.left?.value)
     }
 }

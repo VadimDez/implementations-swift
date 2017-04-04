@@ -103,12 +103,12 @@ class BST {
             throw BSTError.EmptyTree
         }
         
-        return self.getMin(node: self.root!)
+        return self.getMin(node: self.root!).value
     }
     
-    private func getMin(node: Node) -> Int {
+    private func getMin(node: Node) -> Node {
         if node.left == nil {
-            return node.value
+            return node
         }
         
         return self.getMin(node: node.left!)
@@ -119,12 +119,12 @@ class BST {
             throw BSTError.EmptyTree
         }
         
-        return self.getMax(node: self.root!)
+        return self.getMax(node: self.root!).value
     }
     
-    private func getMax(node: Node) -> Int {
+    private func getMax(node: Node) -> Node {
         if node.right == nil {
-            return node.value
+            return node
         }
         
         return self.getMax(node: node.right!)
@@ -184,7 +184,7 @@ class BST {
         }
         
         if node?.right != nil {
-            return self.getMin(node: node!.right!)
+            return self.getMin(node: node!.right!).value
         }
         
         var successor: Node? = nil;
@@ -203,53 +203,48 @@ class BST {
     }
     
     func deleteValue(value: Int) -> Void {
-//        let node = self.find(value: value, root: self.root)
+        let node = self.find(value: value, root: self.root)
         
-//        if node == nil {
-//            return;
-//        }
-        
-//        if node?.left == nil || node?.right == nil {
-        
-//        }
-        
-        var parent: Node?;
-        var node: Node? = self.root;
-        var found: Bool = false;
-        var end: Bool = self.root == nil;
-        var nodeToDelete: Node?;
-        var isLeft: Bool = false;
-        
-        while !found && !end {
-            parent = node;
-            
-            if (parent == nil) {
-                end = true;
-            } else {
-                if (parent?.value)! >= value {
-                    found = parent?.left?.value == value;
-                    nodeToDelete = parent?.left;
-                    isLeft = true;
-                } else {
-                    found = parent?.right?.value == value;
-                    nodeToDelete = parent?.right
-                    isLeft = false;
-                }
-                
-                node = node!.value >= value ? node?.left : node?.right;
-            }
-        }
-        
-        if end || !found {
+        if node == nil {
             return;
         }
         
-        if nodeToDelete?.left == nil && nodeToDelete?.right == nil {
-            if isLeft {
-                parent?.left = nil
-            } else {
-                parent?.right = nil
-            }
+        self.root = self.deleteNode(root: self.root, nodeToDelete: node!)
+    }
+    
+    private func deleteNode(root: Node?, nodeToDelete: Node) -> Node? {
+        
+        if root == nil {
+            return nil
         }
+        
+        if (root?.value)! > nodeToDelete.value {
+            root?.left = self.deleteNode(root: root?.left, nodeToDelete: nodeToDelete)
+            return root
+        }
+        
+        if (root?.value)! < nodeToDelete.value {
+            root?.right = self.deleteNode(root: root?.right, nodeToDelete: nodeToDelete)
+            return root
+        }
+        
+        if root?.left == nil && root?.right == nil {
+            return nil
+        }
+        
+        if root?.left == nil {
+            return root?.right
+        }
+        
+        if root?.right == nil {
+            return root?.left
+        }
+        
+        let rightMinNode = self.getMin(node: root!.right!)
+        
+        rightMinNode.left = root?.left
+        rightMinNode.right = self.deleteNode(root: root?.right, nodeToDelete: rightMinNode)
+        
+        return rightMinNode
     }
 }
